@@ -30,16 +30,10 @@ public class BishopBlackTest {
         assertThat(rsl, is(ps));
     }
 
-    @Test
+    @Test (expected = ImpossibleMoveException.class)
     public void testWayNotDiagonal()  {
-        try {
-            BishopBlack bishopBlack = new BishopBlack(Cell.C1);
-            Cell[] rsl = bishopBlack.way(Cell.G6);
-            fail();
-        } catch (ImpossibleMoveException e) {
-            assertThat(e.getMessage(), is("Could not move by diagonal from C1 to G6"));
-        }
-
+        BishopBlack bishopBlack = new BishopBlack(Cell.C1);
+        Cell[] rsl = bishopBlack.way(Cell.G6);
     }
 
     @Test
